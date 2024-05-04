@@ -1,17 +1,22 @@
 import { Typography } from "@material-ui/core";
 
 
+
 // Define components for different pages
 export function DashboardPage() {
     return (
         <>
-            <Typography variant="h5">Home Page Content General Management</Typography>
+            <Typography variant="h5">Home Page Content General Management</Typography>           
         </>
     )
 }
 
+export function ContactUsPage() {
+    return <Typography variant="h5">Yo Yo this is Contact us page </Typography>
+    }
+
 export function SamplePage() {
-    return <Typography variant="h5">Resume Page Content General Management</Typography>;
+    return <Typography variant="h5">Resume Page Content General Management  </Typography>;
 }
 
 export function ProfilePage() {
@@ -19,5 +24,6 @@ export function ProfilePage() {
 }
 
 export function LogoutPage() {
-    return <Typography variant="h5">Contacts Page Content</Typography>;
+    return <Typography variant="h5">Contacts Page Content </Typography>;
 }
+

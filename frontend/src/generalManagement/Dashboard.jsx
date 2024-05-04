@@ -13,7 +13,8 @@ import {
   makeStyles,
   CssBaseline,
   Drawer,
-  Typography
+  Typography,
+  Icon
 } from "@material-ui/core";
 import {
   Menu,
@@ -22,7 +23,9 @@ import {
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonIcon from '@mui/icons-material/Person';
-import { DashboardPage, ProfilePage, SamplePage,LogoutPage } from "./components09/Pages";
+import ContactUsIcon from '@mui/icons-material/Delete';
+import { DashboardPage, ProfilePage, SamplePage,LogoutPage,ContactUsPage } from "./components09/Pages";
+import ContactForm from "./components09/ContactUs";
 
 // Define styles
 const useStyles = makeStyles((theme) => ({
@@ -71,7 +74,8 @@ export default function Dashboard() {
           { Icon: DashboardIcon, text: "Dashboard" },
           { Icon: AssignmentInd, text: "Sample" },
           { Icon: PersonIcon, text: "Profile" },
-          { Icon: LogoutIcon, text: "Log out" }
+          { Icon: LogoutIcon, text: "Log out" },
+          { Icon: ContactUsIcon, text:"Contact Us"}
         ].map((item, index) => (
           <ListItem
             className={classes.listItem}
@@ -100,6 +104,8 @@ export default function Dashboard() {
         return <ProfilePage />;
       case "Log Out":
         return <LogoutPage />;
+      case "Contact Us":
+        return <ContactForm/>;
       default:
         return <DashboardPage />;
     }
