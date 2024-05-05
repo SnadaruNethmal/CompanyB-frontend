@@ -1,6 +1,5 @@
-// ContactForm.js
-
 import React, { useState } from 'react';
+import axios from 'axios';
 import './ContactForm.css';
 import img from './assets/img.jpg';
 
@@ -51,20 +50,34 @@ const ContactForm = () => {
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (validateForm()) {
-      // Simulating submission success (replace with actual submission logic)
-      setTimeout(() => {
-        setSubmissionSuccess(true);
-        setFormData({
-          firstName: '',
-          lastName: '',
-          email: '',
-          subject: '',
-          message: ''
+      try {
+        const response = await axios.post('localhost:8090/api/user/conusin', {
+            firstname: formData.firstName,
+            lastname: formData.lastName,
+            email: formData.email,
+            subject: formData.subject,
+            bodymsg: formData.message
         });
-      }, 1000);
+        if (response.status === 200) {
+          setSubmissionSuccess(true);
+          setFormData({
+            firstName: '',
+            lastName: '',
+            email: '',
+            subject: '',
+            message: ''
+          });
+        } else {
+          // Handle error if submission fails
+          console.error('Submission failed');
+        }
+      } catch (error) {
+        // Handle error
+        console.error('Error submitting form:', error);
+      }
     }
   };
 
@@ -72,9 +85,10 @@ const ContactForm = () => {
     window.location.href = '/general-management'; // Redirect to dashboard
   };
 
+  
   return (
     <div className="contact-form-container">
-      
+      <img src={img} className='bg' />
       <div className="background-gradient"></div>
       <div className="form-container">
         <h2>Contact Us</h2>

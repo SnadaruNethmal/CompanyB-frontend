@@ -9,7 +9,7 @@
     background-image: url('./assets/img.jpg');
     background-size: cover;
     background-position: center;
-    background-blend-mode: screen;
+    background-blend-mode: screen; 
   
   .background-gradient {
     position: absolute;
